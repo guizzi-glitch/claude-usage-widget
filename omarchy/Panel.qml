@@ -12,14 +12,14 @@ Panel {
   ipcTarget: "asm444.codex-usage"
   manageIpc: false
 
-  readonly property var data: usage.record || ({})
-  readonly property var limits: data.rateLimits || ({})
+  readonly property var usageRecord: usage.record || ({})
+  readonly property var limits: usageRecord.rateLimits || ({})
   readonly property var session: limits.session || ({})
   readonly property var weekly: limits.weeklyAll || limits.weekly || ({})
-  readonly property var activity: data.activity || ({})
+  readonly property var activity: usageRecord.activity || ({})
   readonly property real sessionPercent: clamp(Number(session.percentUsed || 0), 0, 100)
   readonly property real weeklyPercent: clamp(Number(weekly.percentUsed || 0), 0, 100)
-  readonly property bool hasData: data.available === true
+  readonly property bool hasData: usageRecord.available === true
   readonly property bool alarming: sessionPercent >= 80 || weeklyPercent >= 80
   readonly property color foreground: bar ? bar.foreground : Color.foreground
   readonly property color urgent: bar ? bar.urgent : Color.urgent
@@ -156,7 +156,7 @@ Panel {
               }
               Text {
                 text: root.hasData
-                  ? String(root.limits.plan || "Subscription") + " · " + String(root.data.source || "local")
+                  ? String(root.limits.plan || "Subscription") + " · " + String(root.usageRecord.source || "local")
                   : (usage.error || "Loading usage data")
                 color: root.dim
                 font.family: root.fontFamily
