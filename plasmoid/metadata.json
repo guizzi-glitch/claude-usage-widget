@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "org.kde.plasma.codexusage",
+    "Name": "Codex Usage Monitor",
+    "Description": "Shows local Codex 5-hour and weekly usage snapshots in the Plasma panel.",
+    "Category": "System Information",
+    "Icon": "utilities-system-monitor",
+    "License": "MIT",
+    "Version": "1.1.0"
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API": "declarativeappletscript",
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-Plasma-MainScript": "ui/main.qml"
+}

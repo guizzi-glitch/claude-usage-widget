@@ -1,0 +1,6 @@
+[Unit]
+Description=Refresh local Codex usage data for Plasma
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/codex-usage-collector.py
