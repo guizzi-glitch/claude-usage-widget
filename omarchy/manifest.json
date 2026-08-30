@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "asm444.codex-usage",
+  "name": "Codex Usage",
+  "version": "1.0.0",
+  "author": "asm444",
+  "license": "MIT",
+  "description": "Codex session and weekly usage in the Omarchy bar.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Codex Usage",
+    "description": "Codex rate limits, reset times, credits and recent activity.",
+    "category": "AI",
+    "aliases": ["codex", "codex-usage"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 60
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 30,
+        "max": 3600,
+        "step": 30,
+        "defaultValue": 60
+      }
+    ]
+  }
+}
