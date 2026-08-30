@@ -28,6 +28,9 @@ Panel {
   readonly property color accent: alarming ? urgent : Color.accent
   readonly property string fontFamily: bar ? bar.fontFamily : Style.font.family
   property double nowMs: Date.now()
+  property UsageData usage: UsageData {
+    settings: root.settings
+  }
 
   function clamp(value, low, high) {
     return Math.max(low, Math.min(high, isFinite(value) ? value : low))
@@ -65,11 +68,6 @@ Panel {
     nowMs = Date.now()
     usage.reload()
     Qt.callLater(function() { keyCatcher.forceActiveFocus() })
-  }
-
-  UsageData {
-    id: usage
-    settings: root.settings
   }
 
   Timer {
