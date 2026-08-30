@@ -1,5 +1,5 @@
 [Unit]
-Description=Refresh local Codex usage data for Plasma
+Description=Refresh local Codex usage widget data
 
 [Service]
 Type=oneshot

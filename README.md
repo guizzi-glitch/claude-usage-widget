@@ -1,7 +1,24 @@
-# Codex Usage Monitor for KDE Plasma
+# Codex Usage Monitor for Omarchy and KDE Plasma
 
-A Plasma 6 panel widget that shows Codex CLI / ChatGPT usage: the rolling
-short window, the weekly window, plan tier, credits and 7-day local activity.
+A native Omarchy bar plugin and Plasma 6 panel widget that show Codex CLI /
+ChatGPT usage: the rolling short window, weekly window, plan tier, credits and
+7-day local activity.
+
+## Omarchy
+
+The Omarchy version is a native Quickshell plugin. It displays the current
+session percentage directly in the bar and opens a theme-aware details panel
+with session and weekly limits, reset countdowns and recent activity.
+
+```bash
+chmod +x install-omarchy.sh
+./install-omarchy.sh
+```
+
+The installer copies the plugin to
+`~/.config/omarchy/plugins/asm444.codex-usage`, enables the user collector
+timer and adds the widget to the right section of the bar. Left-click opens
+the details panel; middle-click forces a refresh.
 
 ## How it works
 
@@ -113,7 +130,7 @@ reads panels the Codex collector does not populate: `weeklyOpus`,
 hidden. `serviceStatus`, `dumbness`, `limitEta`, `performance` and `lifetime`
 are emitted as inert placeholders to keep the UI's expectations satisfied.
 
-## Install
+## KDE Plasma install
 
 ```bash
 chmod +x install.sh
