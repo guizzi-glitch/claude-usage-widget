@@ -1,8 +1,42 @@
-# Codex Usage Monitor for Omarchy and KDE Plasma
+# Codex Usage Monitor for Windows, Omarchy and KDE Plasma
 
-A native Omarchy bar plugin and Plasma 6 panel widget that show Codex CLI /
-ChatGPT usage: the rolling short window, weekly window, plan tier, credits and
-7-day local activity.
+A Windows system-tray app, native Omarchy bar plugin and Plasma 6 panel widget
+that show Codex usage: the rolling short window, weekly window and seven-day
+local activity.
+
+## Windows 10/11
+
+The Windows edition lives in the notification area. Left-click the Codex icon
+to open a scrollable panel with a session ring and live reset countdown, weekly
+limits, model breakdown, two-hour activity, today's token/cache totals and the
+public OpenAI service status. Right-click it to refresh, enable startup with
+Windows or exit.
+
+It reads `%USERPROFILE%\.codex\sessions\**\*.jsonl` locally and writes only a
+normalized cache to `%APPDATA%\codex-usage-widget\usage-widget.json`. It does
+not read `auth.json`, browser cookies or private ChatGPT endpoints. The service
+card makes an unauthenticated request to the public
+`https://status.openai.com/api/v2/summary.json` endpoint every five minutes.
+
+### Run from source
+
+Requires Node.js 22 or newer:
+
+```powershell
+npm install
+npm start
+```
+
+### Build the installer
+
+```powershell
+npm run build:win
+```
+
+The NSIS installer is created at
+`dist\Codex-Usage-Widget-Setup-2.1.0.exe`. The installed application is
+self-contained and does not require Node.js. Use the checkbox in the panel or
+the tray menu to start it automatically with Windows.
 
 ## Omarchy
 

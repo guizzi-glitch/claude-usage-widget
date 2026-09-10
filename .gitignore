@@ -1,2 +1,7 @@
+node_modules/
+dist/
+windows/assets/icon.ico
+windows/assets/icon.png
+npm-debug.log*
 __pycache__/
 *.pyc

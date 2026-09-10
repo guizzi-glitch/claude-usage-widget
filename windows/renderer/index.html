@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'">
+    <title>Codex Usage</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="topbar">
+        <div class="brand"><i class="online-dot"></i><strong>Codex</strong></div>
+        <div class="header-actions">
+          <span id="usage-state" class="state-pill">Carregando</span>
+          <button id="close" class="icon-button" type="button" title="Fechar">×</button>
+        </div>
+      </header>
+
+      <section id="empty" class="empty" hidden>
+        <img src="../assets/icon.svg" alt="" class="empty-logo">
+        <strong>Aguardando dados do Codex</strong>
+        <span>Conclua ao menos uma interação no Codex para gerar o primeiro registro de uso.</span>
+      </section>
+
+      <div id="content" hidden>
+        <section class="hero card">
+          <div class="hero-logo">
+            <img src="../assets/icon.svg" alt="Codex">
+            <span id="model-label">Codex</span>
+          </div>
+          <div id="session-ring" class="usage-ring">
+            <div><strong id="session-value">0%</strong><span>SESSÃO 5H</span></div>
+          </div>
+        </section>
+
+        <div class="countdown">
+          <strong id="session-countdown">--:--:--</strong>
+          <span id="session-reset">até resetar a janela da sessão</span>
+        </div>
+
+        <section class="card limits-card">
+          <div class="section-title"><span>LIMITES</span><span id="plan" class="muted">PLANO</span></div>
+          <div class="limit-row">
+            <div><span>Janela da sessão</span><strong id="session-inline-value">0%</strong></div>
+            <div class="track"><div id="session-bar" class="bar"></div></div>
+          </div>
+          <div class="limit-row">
+            <div><span>Semanal · todos os modelos</span><strong id="weekly-value">0%</strong></div>
+            <div class="track"><div id="weekly-bar" class="bar"></div></div>
+            <small id="weekly-reset">Horário de reset indisponível</small>
+          </div>
+        </section>
+
+        <section id="models-card" class="card" hidden>
+          <div class="section-title"><span>MODELOS USADOS · 7 DIAS</span></div>
+          <div id="models" class="models"></div>
+        </section>
+
+        <section class="card">
+          <div class="section-title"><span>ATIVIDADE · 2H</span></div>
+          <div class="metric-grid activity-grid">
+            <div><strong id="output-rate">0</strong><span>tokens/h saída</span></div>
+            <div><strong id="errors">0</strong><span>erros 2h</span></div>
+            <div><strong id="duration">—</strong><span>duração méd.</span></div>
+            <div><strong id="model-short">—</strong><span>modelo</span></div>
+          </div>
+        </section>
+
+        <section class="card status-card">
+          <div class="section-title">
+            <span>SAÚDE DO SERVIÇO</span>
+            <span id="service-summary" class="service-summary"><i></i> Verificando</span>
+          </div>
+          <div id="components" class="components"></div>
+        </section>
+
+        <section class="card">
+          <div class="section-title"><span>HOJE</span><span id="updated" class="muted"></span></div>
+          <div class="metric-grid today-grid">
+            <div><strong id="today-tokens">0</strong><span>tokens</span></div>
+            <div><strong id="today-output">0</strong><span>saída</span></div>
+            <div><strong id="today-messages">0</strong><span>mensagens</span></div>
+            <div><strong id="cache-hit">0%</strong><span>cache hit</span></div>
+          </div>
+        </section>
+
+        <section class="card chart-card">
+          <div class="section-title"><span>ÚLTIMOS 7 DIAS</span><span id="week-total" class="muted">0 tokens</span></div>
+          <div id="chart" class="chart" aria-label="Tokens usados nos últimos sete dias"></div>
+        </section>
+      </div>
+
+      <footer>
+        <label class="startup"><input id="startup" type="checkbox"><span>Iniciar com o Windows</span></label>
+        <button id="refresh" type="button"><span class="refresh-icon">↻</span> Atualizar</button>
+      </footer>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "codex-usage-widget",
+  "version": "2.1.0",
+  "description": "Windows system tray widget for local Codex usage limits and activity",
+  "main": "windows/main.js",
+  "author": "asm444 and contributors",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "assets": "node scripts/generate-windows-icons.js",
+    "start": "npm run assets && electron .",
+    "screenshot": "npm run assets && electron scripts/capture-widget.js",
+    "test": "node --test tests/*.test.js",
+    "build:win": "npm run test && npm run assets && electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^44.3.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.asm444.codexusage",
+    "productName": "Codex Usage Widget",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "windows/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "windows/assets/icon.ico",
+      "artifactName": "Codex-Usage-Widget-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Codex Usage Widget",
+      "runAfterFinish": true
+    }
+  }
+}
